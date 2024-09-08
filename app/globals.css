@@ -23,3 +23,8 @@ body {
     text-wrap: balance;
   }
 }
+
+input, textarea {
+  background-color: white;
+  color: black;
+}

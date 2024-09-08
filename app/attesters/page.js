@@ -5,9 +5,13 @@ import Link from 'next/link';
 import { Web3Auth } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, WEB3AUTH_NETWORK } from "@web3auth/base";
 import { EthereumPrivateKeyProvider } from "@web3auth/ethereum-provider";
+import { ethers } from 'ethers';
+import { contract } from '../utils/contract';
 
 export default function Attesters() {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [attestationRequests, setAttestationRequests] = useState([]);
+
     const clientId = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENT_ID;
 
     const chainConfig = {
@@ -28,20 +32,38 @@ export default function Attesters() {
     });
 
 
+    async function fetchAttestationRequests() {
+        if (typeof window.ethereum !== 'undefined') {
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            const contractInstance = new ethers.Contract(contract.address, contract.abi, provider);
+            const attestationCount = await contractInstance.attestationCount();
+            const requests = [];
+            const currentAddress = await provider.getSigner().getAddress(); // Get the logged-in user's address
+            for (let i = 0; i < attestationCount; i++) {
+                const attestation = await contractInstance.attestations(i);
+                if (attestation.attester === currentAddress) { // Check if attester address matches the logged-in user
+                    requests.push(attestation);
+                }
+            }
+            return requests;
+        }
+        return [];
+    }
+
+    useEffect(() => {
+        const loadRequests = async () => {
+            const requests = await fetchAttestationRequests();
+            setAttestationRequests(requests);
+        };
+        loadRequests();
+    }, []);
+
     useEffect(() => {
         if (web3auth.connected) {
             setLoggedIn(true);
         }
         console.log(web3auth.connected);
     }, []);
-
-    const attestationRequests = [
-        { id: 1, name: 'Alice', type: 'identity verification' },
-        { id: 2, name: 'Bob', type: 'employment verification' },
-        { id: 3, name: 'Charlie', type: 'address verification' },
-        { id: 4, name: 'David', type: 'education verification' },
-        { id: 5, name: 'Eve', type: 'criminal record check' },
-    ];
 
     return (
         <div className="flex min-h-screen bg-gray-900 text-white">

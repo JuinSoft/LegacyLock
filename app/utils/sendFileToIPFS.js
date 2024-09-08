@@ -17,10 +17,10 @@ const sendFileToIPFS = async (file) => {
                     "Content-Type": "multipart/form-data"
                 },
             });
-
             const url = `${process.env.NEXT_APP_PINATA_GATEWAY}${resFile.data.IpfsHash}`;
             return { hash: resFile.data.IpfsHash, url: url };
         } catch (error) {
+            alert("Error sending File to IPFS: ", error);
             console.log("Error sending File to IPFS: ", error);
         }
     }

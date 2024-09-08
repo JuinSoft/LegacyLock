@@ -9,6 +9,7 @@ import Home from './components/Home';
 import MyAttestations from './my-attestations/page';
 import RequestAttestation from './request-attestation/page';
 import Attesters from './attesters/page';
+import RegisterAttester from './register-attester/page';
 
 const clientId = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENT_ID;
 
@@ -65,6 +66,8 @@ export default function App() {
                 return <RequestAttestation />;
             case 'attesters':
                 return <Attesters />;
+            case 'register-attester':
+                return <RegisterAttester />;
             default:
                 return <Home login={login} loggedIn={loggedIn} />;
         }
