@@ -6,6 +6,8 @@ function RequestAttestationForm() {
   const [description, setDescription] = useState('');
   const [document, setDocument] = useState(null);
   const [attesterAddress, setAttesterAddress] = useState('');
+  const [requesterAddress, setRequesterAddress] = useState('');
+  const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -22,6 +24,28 @@ function RequestAttestationForm() {
                   id="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
+                  className="w-full p-2 border rounded"
+                  required
+              />
+          </div>
+          <div>
+              <label htmlFor="name" className="block mb-2">Name</label>
+              <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-2 border rounded"
+                  required
+              />
+          </div>
+          <div>
+              <label htmlFor="requesterAddress" className="block mb-2">Your Address</label>
+              <input
+                  type="text"
+                  id="requesterAddress"
+                  value={requesterAddress}
+                  onChange={(e) => setRequesterAddress(e.target.value)}
                   className="w-full p-2 border rounded"
                   required
               />
