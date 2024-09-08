@@ -37,9 +37,28 @@ contract LegacyLock {
         emit AttesterRegistered(msg.sender, _name);
     }
 
-    function requestAttestation(string memory _name, string memory _title, string memory _description, string memory _documentIPFSHash, string memory _documentURL) public {
+    function requestAttestation(
+        string memory _name,
+        string memory _title,
+        string memory _description,
+        string memory _documentIPFSHash,
+        string memory _documentURL,
+        address _attester,
+        bool _isVerified
+    ) public {
         uint256 id = attestationCount;
-        attestations[id] = Attestation(id, msg.sender, address(0), _name, _title, _description, _documentIPFSHash, _documentURL, false, block.timestamp);
+        attestations[id] = Attestation(
+            id,
+            msg.sender,
+            _attester,
+            _name,
+            _title,
+            _description,
+            _documentIPFSHash,
+            _documentURL,
+            _isVerified,
+            block.timestamp
+        );
         attestationCount++;
         emit AttestationRequested(id, msg.sender, _title);
     }

@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "LegacyLock",
   description: "Secure and attest your important documents with Sign Protocol",
+  icon: "./icon.png",
 };
 
 export default function RootLayout({ children }) {

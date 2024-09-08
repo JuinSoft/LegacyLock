@@ -13,20 +13,19 @@ function RequestAttestationForm() {
     const [requesterAddress, setRequesterAddress] = useState('');
     const [name, setName] = useState('');
 
-
-    async function requestAttestation(name, title, description, documentIPFSHash, documentURL) {
+    async function requestAttestation(name, title, description, documentIPFSHash, documentURL, attesterAddress, isVerified) {
         if (typeof window.ethereum !== 'undefined') {
             const provider = new ethers.BrowserProvider(window.ethereum);
             const signer = await provider.getSigner();
             const contractInstance = new ethers.Contract(contract.address, contract.abi, signer);
-            await contractInstance.requestAttestation(name, title, description, documentIPFSHash, documentURL);
+            await contractInstance.requestAttestation(name, title, description, documentIPFSHash, documentURL, attesterAddress, isVerified);
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const documentURL = await sendFileToIPFS(document);
-        await requestAttestation(name, title, description, documentURL.hash, documentURL.url);
+        await requestAttestation(name, title, description, documentURL.hash, documentURL.url, attesterAddress, true);
         alert("Attestation requested successfully!");
     };
 

@@ -66,6 +66,7 @@ function RegisterAttesterForm() {
                     value={address}
                     className="w-full p-2 border rounded bg-gray-100"
                     readOnly
+                    disabled
                 />
             </div>
             <div>

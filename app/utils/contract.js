@@ -1,5 +1,5 @@
 export const contract = {
-    address: "0x4c640B6AC79E16153021aeec2E4BD575ff29f795",
+    address: "0xC4233D5A35E4C8b1137471E3A58D967A8586aC28",
     abi: [
         {
             "anonymous": false,
@@ -63,93 +63,6 @@ export const contract = {
             ],
             "name": "AttesterRegistered",
             "type": "event"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_email",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_organization",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_role",
-                    "type": "string"
-                }
-            ],
-            "name": "registerAttester",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "_name",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_title",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_description",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_documentIPFSHash",
-                    "type": "string"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_documentURL",
-                    "type": "string"
-                }
-            ],
-            "name": "requestAttestation",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                }
-            ],
-            "name": "verifyAttestation",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_attester",
-                    "type": "address"
-                }
-            ],
-            "name": "verifyAttester",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
         },
         {
             "inputs": [],
@@ -522,6 +435,103 @@ export const contract = {
                 }
             ],
             "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_email",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_organization",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_role",
+                    "type": "string"
+                }
+            ],
+            "name": "registerAttester",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_title",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_description",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_documentIPFSHash",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_documentURL",
+                    "type": "string"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_attester",
+                    "type": "address"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "_isVerified",
+                    "type": "bool"
+                }
+            ],
+            "name": "requestAttestation",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "verifyAttestation",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_attester",
+                    "type": "address"
+                }
+            ],
+            "name": "verifyAttester",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         }
     ]
