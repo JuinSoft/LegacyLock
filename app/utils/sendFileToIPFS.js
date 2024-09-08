@@ -19,7 +19,7 @@ const sendFileToIPFS = async (file) => {
             });
 
             const url = `${process.env.NEXT_APP_PINATA_GATEWAY}${resFile.data.IpfsHash}`;
-            return url;
+            return { hash: resFile.data.IpfsHash, url: url };
         } catch (error) {
             console.log("Error sending File to IPFS: ", error);
         }

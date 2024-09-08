@@ -85,6 +85,7 @@ function RegisterAttesterForm() {
                   type="checkbox"
                   id="verifiedAttester"
                   className="form-checkbox"
+                  defaultChecked
                   disabled
               />
               <label htmlFor="verifiedAttester">Verified Attester</label>
