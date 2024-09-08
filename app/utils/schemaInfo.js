@@ -25,8 +25,8 @@ async function makeAttestationRequest(endpoint, options) {
 
 export const schemaInfo = {
     name: "LegacyLock",
-    id: "0x20d",
-    fullSchemaId: "onchain_evm_11155111_0x20d",
+    id: "0x213",
+    fullSchemaId: "onchain_evm_11155111_0x213",
     network: "sepolia",
     data: "sepolia",
     fields: [{ "name": "id", "type": "uint256" }, { "name": "requester", "type": "address" }, { "name": "attester", "type": "address" }, { "name": "name", "type": "string" }, { "name": "title", "type": "string" }, { "name": "description", "type": "string" }, { "name": "documentIPFSHash", "type": "string" }, { "name": "isVerified", "type": "bool" }, { "name": "timestamp", "type": "uint256" }],
@@ -40,7 +40,7 @@ export async function createAttestation(details, signer) {
             details,
             signer
         },
-        indexingValue: signer.toLowerCase()
+        indexingValue: signer
     });
     return res;
 }
@@ -52,7 +52,7 @@ export async function queryAttestations(attester, requester) {
             mode: "onchain",
             schemaId: schemaInfo.fullSchemaId,
             attester: attester,
-            indexingValue: requester.toLowerCase(),
+            indexingValue: requester,
         },
     });
 

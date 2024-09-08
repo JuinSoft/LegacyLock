@@ -18,7 +18,7 @@ function RequestAttestationForm() {
             const provider = new ethers.BrowserProvider(window.ethereum);
             const signer = await provider.getSigner();
             const contractInstance = new ethers.Contract(contract.address, contract.abi, signer);
-            await contractInstance.requestAttestation(name, title, description, documentIPFSHash, documentURL, attesterAddress, isVerified);
+            await contractInstance.requestAttestation(name, title, description, documentIPFSHash, documentURL, attesterAddress, false);
         }
     }
 
@@ -53,7 +53,7 @@ function RequestAttestationForm() {
                     required
                 />
             </div>
-            <div>
+            {/* <div>
                 <label htmlFor="requesterAddress" className="block mb-2">Your Address</label>
                 <input
                     type="text"
@@ -63,7 +63,7 @@ function RequestAttestationForm() {
                     className="w-full p-2 border rounded"
                     required
                 />
-            </div>
+            </div> */}
             <div>
                 <label htmlFor="description" className="block mb-2">Description</label>
                 <textarea

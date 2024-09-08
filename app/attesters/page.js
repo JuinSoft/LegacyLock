@@ -44,7 +44,7 @@ export default function Attesters() {
             const currentAddress = await signer.getAddress(); // Get the logged-in user's address
             for (let i = 0; i < attestationCount; i++) {
                 const attestation = await contractInstance.attestations(i);
-                console.log("Attestation: ", attestation, currentAddress);
+                console.log(attestation, currentAddress)
                 if (attestation.attester.toLowerCase() === currentAddress.toLowerCase()) { // Check if attester address matches the logged-in user
                     requests.push(attestation);
                 }
