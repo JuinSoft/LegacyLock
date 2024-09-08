@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LegacyLock
+
+LegacyLock is a decentralized application (dApp) that allows users to secure and verify important documents using blockchain technology. This project leverages Web3Auth for authentication and Ethereum for blockchain interactions.
+
+## Features
+
+- **Connect Wallet**: Users can connect their Ethereum wallet to interact with the dApp.
+- **Request Attestation**: Users can request attestations for their documents.
+- **Register as an Attester**: Users can register to become attesters and help verify documents.
+- **View Attestations**: Users can view their attestations.
+- **Blockchain Integration**: All interactions are secured and verified on the Ethereum blockchain.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js
+- npm or yarn
+- An Ethereum wallet (e.g., MetaMask)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```sh
+   git clone https://github.com/yourusername/legacylock.git
+   cd legacylock
+   ```
 
-## Learn More
+2. Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Create a `.env` file in the root directory and add your environment variables:
+   ```sh
+   NEXT_PUBLIC_WEB3AUTH_CLIENT_ID=your_web3auth_client_id
+   NEXT_APP_PINATA_API_KEY=your_pinata_api_key
+   NEXT_APP_PINATA_API_SECRET=your_pinata_api_secret
+   NEXT_APP_PINATA_GATEWAY=your_pinata_gateway
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Running the Application
 
-## Deploy on Vercel
+1. Start the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Open your browser and navigate to `http://localhost:3000`.
+
+## Project Structure
+
+- `app/`: Contains the main application components and pages.
+- `app/utils/`: Utility functions for interacting with IPFS and Ethereum.
+- `public/`: Public assets.
+- `styles/`: Global styles.
+- `tailwind.config.js`: Tailwind CSS configuration.
+- `next.config.mjs`: Next.js configuration.
+- `package.json`: Project dependencies and scripts.
+
+## Key Files
+
+- `app/page.js`: Main landing page of the application.
+
+  ```javascript:LegacyLock/app/page.js
+  startLine: 1
+  endLine: 113
+  ```
+
+- `app/my-attestations.js`: Page for viewing user attestations.
+
+  ```javascript:LegacyLock/app/my-attestations.js
+  startLine: 1
+  endLine: 8
+  ```
+
+- `app/request-attestation.js`: Page for requesting document attestations.
+
+  ```javascript:LegacyLock/app/request-attestation.js
+  startLine: 1
+  endLine: 10
+  ```
+
+- `app/utils/sendFileToIPFS.js`: Utility function for uploading files to IPFS using Pinata.
+
+  ```javascript:LegacyLock/app/utils/sendFileToIPFS.js
+  startLine: 1
+  endLine: 29
+  ```
+
+- `app/utils/ethRPC.js`: Utility functions for interacting with the Ethereum blockchain.
+  ```javascript:LegacyLock/app/utils/ethRPC.js
+  startLine: 1
+  endLine: 86
+  ```
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
